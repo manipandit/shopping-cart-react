@@ -35,12 +35,18 @@ const Product = ({ post }) => {
       </div>
 
       <div className="h-[180px]">
-        <img src={post.image} className="h-full w-full" alt="prod-img" />
+        <img
+          src={post.image}
+          className="hover:scale-110 transition duration-300 ease-in h-full w-full"
+          alt="prod-img"
+        />
       </div>
 
       <div className="flex justify-between gap-12 items-center mt-5 w-full">
         <div>
-          <p className="text-green-600 font-semibold ">${post.price}</p>
+          <p className="text-green-600 font-semibold ">
+            ₹{Math.ceil(post.price)}
+          </p>
         </div>
 
         {cart.some((p) => p.id === post.id) ? (

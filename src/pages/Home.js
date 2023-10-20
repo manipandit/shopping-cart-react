@@ -12,7 +12,12 @@ const Home = () => {
     try {
       const res = await fetch(API_URL);
       const data = await res.json();
-      setPosts(data);
+
+      const updatedData = data.map((d) => {
+        return { ...d, qty: 1, price: d.price * 80 };
+      });
+      console.log(updatedData);
+      setPosts(updatedData);
     } catch (error) {
       console.log("error fetching product data");
       setPosts([]);
